@@ -114,7 +114,7 @@ def send_notification(label_id, status):
         if label_id == keyval['id']:
             sender = keyval['sender']
     print(sender)
-    label = {"login": sender, "msg": status, "id": label_id}
+    label = {"login": sender, "msg": status, "label_id": label_id}
     headers = generate_header_with_token()
     requests.post(API_ADDRESS + 'notification', headers=headers, json=label)
 
