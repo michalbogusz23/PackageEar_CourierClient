@@ -19,7 +19,6 @@ def generate_header_with_token():
         'exp': datetime.utcnow() + timedelta(seconds=100)
     }
     token = encode(payload, JWT_SECRET, algorithm='HS256')
-    token = token.decode()
     headers = {"Authorization": "Bearer " + token}
     return headers
 
