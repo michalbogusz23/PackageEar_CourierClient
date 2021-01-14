@@ -114,11 +114,12 @@ def send_notification(label_id, status):
         if label_id == keyval['id']:
             sender = keyval['sender']
     print(sender)
-    label = {"login": sender, "msg": status, "label_id": label_id}
+    msg = f'Twoja paczka o id: {label_id}, zmieniła status na {status}'
+    label = {"login": sender, "msg": msg}
     headers = generate_header_with_token()
     requests.post(API_ADDRESS + 'notification', headers=headers, json=label)
 
-# auth_user()
+auth_user()
 while True:
     menu()
 
